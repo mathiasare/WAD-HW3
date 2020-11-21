@@ -19,22 +19,31 @@
       <a href="browse.html">Browse</a><hr>
       <a href="login.html">Log out</a>
     </div>  
-
     <section class="main-container">
-    <Post/>
+    <Posts v-bind:posts="posts"/>
     </section>
   </div>
   
 </template>
-
 <script>
-import Post from './Post'
+import Posts from './Posts'
+import postData from "../assets/data/posts.json";
 export default {
     name:"Background",
     components: {
-    Post
-  }
+    Posts
+  },data(){
+ return{
+   posts:postData
+ }
+    
+  },
+
+
+  
+
 }
+
 </script>
 
 <style scoped>

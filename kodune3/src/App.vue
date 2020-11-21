@@ -1,5 +1,5 @@
 <template>
-  <div id="app">{{msg}}</div>
+  <div id="#app"></div>
   <Background/>
 </template>
 
@@ -14,9 +14,9 @@ export default {
 
   data() {
     return {
-      msg: "Hello"
+      
     }
-  },
+  }
 }
 </script>
 
