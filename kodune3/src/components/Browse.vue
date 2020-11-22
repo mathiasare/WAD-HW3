@@ -18,7 +18,7 @@
 
     <div class="dropdown-menu" v-if="menyy">
       <User v-bind:user="user"/>
-      <router-link to="/browse">Browse</router-link><hr>
+      <router-link to="/">Posts</router-link><hr>
       <router-link to="/login">Log out</router-link>
     </div>
     <section class="main-container">
