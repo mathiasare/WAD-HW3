@@ -11,16 +11,17 @@
     <div class="post-image" v-if="post.media != null && post.media.type=='image'">
     <img v-bind:src="post.media.url" alt="PHOTO HERE">
     </div>
-    <div class="post image" v-else-if="post.media != null && post.media.type=='video'">
-        <video controls v-bind:src="post.media.url"></video>
+    <div class="post-image" v-else-if="post.media != null && post.media.type=='video'">
+        
+        <video controls><source v-bind:src="post.media.url"></video>
     </div>
     
 
     <div class="post-title" v-if="post.text != null">
-    {{post.text}}
+    <h3>{{post.text}}</h3>
     </div>
     <div class="post-actions">
-    <button type="button" name="like"  :class="[clicked?'like-button-liked':'like-button']" @click="clicked=!clicked">{{post.likes}}</button>
+    <button type="button" name="like"  class="like-button" @click="e => e.target.classList.toggle('liked')">{{post.likes}}</button>
     </div>
     </div>
 </template>
@@ -31,7 +32,7 @@ export default {
     props:["posts"],
     data(){
         return{
-            clicked:false
+            clickedID:-1
         }
     }
 }
@@ -116,17 +117,8 @@ export default {
     text-align: left;
     border: none;
 }
-.like-button-liked {
+
+.like-button.liked {
     background-color: #01579b;
-    background-image: url(../assets/images/like.png);
-    background-size: 15px;
-    background-repeat: no-repeat;
-    background-position: 5px center;
-    width: 60px;
-    height: 25px;
-    padding-left: 23px;
-    line-height: 10px;
-    text-align: left;
-    border: none;
 }
 </style>
