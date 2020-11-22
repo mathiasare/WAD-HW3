@@ -10,7 +10,7 @@
           <input type="text" name="search"><button type="button">Search</button>
         </div>
         <div class="avatar-container">
-          <img :src="user.avatar" class="avatar" v-on:click="menyy = !menyy" alt="Me">
+          <img :src="user.avatar" class="avatar" @click="menyy = !menyy" alt="Me">
         </div>
       </nav>
     </header>
@@ -18,8 +18,8 @@
     
     <div class="dropdown-menu" v-if="menyy">
       <User v-bind:user="user"/>
-      <a href="browse.html">Browse</a><hr>
-      <a href="login.html">Log out</a>
+      <router-link to="/browse">Browse</router-link><hr>
+      <router-link to="/login">Log out</router-link>
     </div> 
     <section class="main-container">
     <Posts v-bind:posts="posts"/>

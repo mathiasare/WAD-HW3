@@ -1,16 +1,12 @@
 <template>
   <div id="#app"></div>
-  <Background/>
+  <router-view/>
 </template>
 
 <script>
-import Background from './components/Background';
 
 export default {
   name: 'app',
-  components: {
-    Background
-  },
 
   data() {
     return {

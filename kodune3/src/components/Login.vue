@@ -22,7 +22,7 @@
               <input type="password" name="password" placeholder="Password">
             </div>
             <div>
-              <button class="button" type="submit" name="login">Log In</button>
+              <router-link class="button" type="submit" name="login" to="/" tag="button">Log In</router-link>
             </div>
             <div>
               <small>
@@ -36,9 +36,74 @@
 </template>
 <script>
 export default {
-    name: "Login",
-    props:["login"],
+    name:"Login",
     data(){
+      return {
+      msg: 'Welcome'
+    }
     }
 }
 </script>
+<style scoped>
+* {
+    font-family: 'Roboto Slab', serif;
+    outline: none;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #0277bd;
+    color: #263238;
+}
+
+a {
+    color: #40c4ff;
+}
+
+.login-page {
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-container {
+    background-image: url(./../assets/images/logo.png);
+    background-size: 20% auto;
+    background-repeat: no-repeat;
+    background-position: 15px 15px;
+    min-width: 25%;
+    padding: 45px 45px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(38, 50, 56, 0.33);
+    text-align: center;
+}
+
+#login-container form div > input {
+    padding: 8px 16px;
+    margin: 4px 0;
+}
+
+button {
+    padding: 8px 16px;
+    margin: 4px 0;
+    color: #ffffff;
+    background-color: #01579b;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    box-shadow: 0 0 5px rgba(38, 50, 56, 0.7);
+    cursor: pointer;
+}
+
+</style>
