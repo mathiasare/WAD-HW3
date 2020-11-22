@@ -27,18 +27,24 @@
 </template>
 <script>
 import Posts from './Posts'
-import postData from "../assets/data/posts.json";
+import axios from 'axios'
+//import postData from "../assets/data/posts.json";
 export default {
     name:"Background",
     components: {
     Posts
   },data(){
  return{
-   posts:postData
+   posts:[]
  }
     
+  
   },
-
+  mounted(){
+    axios
+    .get("https://private-anon-05dd88cf9f-wad20postit.apiary-mock.com/posts")
+    .then(response => { this.posts = response.data});
+  }
 
   
 
