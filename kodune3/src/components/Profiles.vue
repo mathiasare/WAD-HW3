@@ -6,7 +6,7 @@
     </div>
     <div class="profile-actions">
     <button type="button" class="follow-button" @click="e => Change(e)">
-      {{ followButton }}
+      {{ followButton}}
     </button>
     </div>
   </div>
@@ -19,16 +19,16 @@ export default {
   data(){
     return{
       clickedID:-1,
-      followButton: 'Follow'
+      followButton: "Follow"
     }
   },
   methods: {
     Change(e){
-      e.target.classList.toggle('followed')
-      if(this.followButton === 'Follow')
-        this.followButton = 'Followed'
+      if(e.target.innerHTML === "Follow")
+        e.target.innerHTML = "Followed"
       else
-        this.followButton = 'Follow'
+        e.target.innerHTML = "Follow"
+      e.target.classList.toggle('followed')
 
     }
   }
