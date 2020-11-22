@@ -10,7 +10,7 @@
           <input type="text" name="search"><button type="button">Search</button>
         </div>
         <div class="avatar-container">
-          <img src="./../assets/images/avatar.png" class="avatar" v-on:click="menyy = !menyy" alt="Me">
+          <img :src="user.avatar" class="avatar" v-on:click="menyy = !menyy" alt="Me">
         </div>
       </nav>
     </header>
