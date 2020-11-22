@@ -4,21 +4,23 @@
     <header>
       <nav>
         <div class="logo-container">
-          <img src="res/images/logo.png" alt="postIt">
+          <img src="./../assets/images/logo.png" alt="postIt">
         </div>
         <div class="search-container">
           <input type="text" name="search"><button type="button">Search</button>
         </div>
         <div class="avatar-container">
-          <img src="res/images/avatar.png" class="avatar" alt="Me">
+          <img src="./../assets/images/avatar.png" class="avatar" v-on:click="menyy = !menyy" alt="Me">
         </div>
       </nav>
     </header>
 
-    <div class="dropdown-menu">
+    
+    <div class="dropdown-menu" v-if="menyy">
+      <User v-bind:user="user"/>
       <a href="browse.html">Browse</a><hr>
       <a href="login.html">Log out</a>
-    </div>  
+    </div> 
     <section class="main-container">
     <Posts v-bind:posts="posts"/>
     </section>
@@ -27,23 +29,36 @@
 </template>
 <script>
 import Posts from './Posts'
+import User from './User'
 import axios from 'axios'
 //import postData from "../assets/data/posts.json";
 export default {
     name:"Background",
     components: {
-    Posts
-  },data(){
- return{
-   posts:[]
- }
-    
+      Posts,
+      User
+    },
+    data(){
+      return{
+        posts:[],
+        user:{
+          firstname:"firstname",
+          lastname:"lastname",
+          avatar:"./../assets/images/avatar.png",
+          email:"email"
+        },
+        menyy: false
+      }
   
-  },
+    },
+    
   mounted(){
     axios
     .get("https://private-anon-05dd88cf9f-wad20postit.apiary-mock.com/posts")
     .then(response => { this.posts = response.data});
+    axios
+    .get("https://private-anon-ba0e9b1a8c-wad20postit.apiary-mock.com/users/1")
+    .then(response => { this.user = response.data});
   }
 
   
@@ -114,7 +129,7 @@ nav div.avatar-container {
     box-sizing: border-box;
     margin-right: 0px;
     margin-top: 50px;
-    display: none;
+    
     text-align: left;
     background-color: #ffffff;
     padding: 10px;
